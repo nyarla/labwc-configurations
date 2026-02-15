@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<labwc_config>
+  <core>
+    <decoration>server</decoration>
+    <promptCommand>zenity --question --title="" --text="%m" --ok-label="%y" --cancel-label="%n"</promptCommand>
+  </core>
+
+  <focus>
+    <followMouse>yes</followMouse>
+  </focus>
+
+  <theme>
+    <name>Kaunas</name>
+    <icon>Fluent-dark</icon>
+    <titlebar>
+      <layout>icon:iconify,max,close</layout>
+      <showTitle>yes</showTitle>
+    </titlebar>
+    <cornerRadius>0</cornerRadius>
+    <font place="ActiveWindow"><name>Sans</name><size>9</size></font>
+    <font place="InactiveWindow"><name>Sans</name><size>9</size></font>
+    <font place="MenuHeader"><name>Sans</name><size>9</size></font>
+    <font place="MenuItem"><name>Sans</name><size>9</size></font>
+  </theme>
+
+  <keyboard layoutScope="global">
+    <numlock>off</numlock>
+    
+    <!-- Launch Application -->
+    <keybind key="W-o">
+      <action name="Execute" command="perl ~/.config/labwc/services/wofi/launch.pl apps"/>
+    </keybind>
+
+    <!-- Compositor Operation  -->
+    <keybind key="C-W-q">
+      <action name="Execute" command="loginctl lock-session" />
+    </keybind>
+
+    <keybind key="W-F4">
+      <action name="Exit" />
+    </keybind>
+
+    <!-- Window Operation -->
+    <keybind key="W-Left">
+      <action name="UnMaximize" direction="both" />
+      <action name="ResizeTo" width="960" height="1032"/>
+      <action name="MoveTo" x="0" y="24" />
+    </keybind>
+
+    <keybind key="W-Right">
+      <action name="UnMaximize" direction="both" />
+      <action name="ResizeTo" width="960" height="1032"/>
+      <action name="MoveTo" x="960" y="24" />
+    </keybind>
+
+    <keybind key="W-Up">
+      <action name="UnMaximize" direction="both" />
+      <action name="ResizeTo" width="1920" height="516" />
+      <action name="MoveTo" x="0" y="24" />
+    </keybind>
+
+    <keybind key="W-Down">
+      <action name="UnMaximize" direction="both" />
+      <action name="ResizeTo" width="1920" height="516" />
+      <action name="MoveTo" x="0" y="540" />
+    </keybind>
+
+    <keybind key="W-p">
+      <action name="UnMaximize" direction="both" />
+      <action name="Maximize" direction="both" />
+    </keybind>
+
+    <keybind key="W-i">
+      <action name="UnMaximize" direction="both" />
+      <action name="ResizeTo" width="960" height="516" />
+      <action name="MoveTo" x="480" y="246" />
+    </keybind>
+  </keyboard>
+
+  <mouse>
+    <default />
+    <context name="Frame">
+      <mousebind direction="W-Down" action="Scroll">
+        <action name="NextWindow" workspace="current" output="all" identifier="all" />
+        <action name="Focus" />
+      </mousebind>
+
+      <mousebind direction="W-Up" action="Scroll">
+        <action name="PreviousWindow" workspace="current" output="all" identifier="all" />
+        <action name="Focus" />
+      </mousebind> 
+    </context>
+  </mouse>
+</labwc_config>
