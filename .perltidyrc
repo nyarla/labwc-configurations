@@ -1,0 +1,39 @@
+# basic option
+-enc=utf8
+-ole=unix
+-i=2
+-l=140
+-xs
+
+# code indentioanl control
+-ci=4
+-xci
+
+# whitespace control
+-tso
+-pt=1
+-sbt=1
+-bt=1
+-bbt=0
+-nsts
+-sfs
+-asc
+-dsm
+
+# comment control
+
+# line break control
+-nce
+-bar
+-otr
+
+# controlling list formatting
+-boc
+
+# blank line control
+-bbc
+
+# controlling vertical alignment
+
+# other control
+-uf=class
