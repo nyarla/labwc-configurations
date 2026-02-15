@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+declare -r config=$HOME/.config/labwc/services/swaylock/config
+
+swayidle -w \
+  timeout 40 "swaylock -C $config -f" \
+  timeout 60 "wayout --off HDMI-A-3" \
+    resume "wayout --on HDMI-A-3" \
+    before-sleep "swaylock -C $config -f" \
+    lock "swaylock -C $config -f"
