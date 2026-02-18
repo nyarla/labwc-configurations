@@ -8,6 +8,8 @@
       <action name="Execute" command="mlterm-wl" />
     </item>
     <separator />
+    <menu id="wofi-menu" label="Applications" execute="perl ~/.config/labwc/services/wofi/launch.pl openbox" />
+    <separator />
     <item label="Reconfigure">
       <action name="Reconfigure" />
     </item>

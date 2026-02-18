@@ -28,7 +28,10 @@
     
     <!-- Launch Application -->
     <keybind key="W-o">
-      <action name="Execute" command="perl ~/.config/labwc/services/wofi/launch.pl apps"/>
+      <action name="Execute" command="perl ~/.config/labwc/services/wofi/launch.pl wofi"/>
+    </keybind>
+    <keybind key="W-F1">
+      <action name="ShowMenu" menu="root-menu" />
     </keybind>
 
     <!-- Compositor Operation  -->

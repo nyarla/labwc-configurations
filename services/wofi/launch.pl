@@ -174,11 +174,71 @@ sub run : prototype($) {
   return $nop->();
 }
 
-sub main {
-  my $ns      = shift // q{};
-  my $actions = { apps => apps, };
+sub openbox : prototype($) {
+  my $apps = shift;
+  say '<?xml version="1.0"?>';
+  say '<openbox_pipe_menu>';
 
-  run( $actions->{$ns} // [] );
+  my $idx = 0;
+  while ( my ( $label, $action ) = splice $apps->@*, 0, 2 ) {
+    if ( $label eq 'sep' ) {
+      my ($section) = $action =~ m{<b># ([^<]+)</b>};
+      $section = ucfirst $section;
+
+      if ( $idx != 0 ) {
+        say qq|</menu>|;
+      }
+
+      say qq|<menu id="wofi-menu-@{[ lc $section ]}" label="${section}">|;
+      next;
+    }
+    say qq|  <item label="${label}">|;
+    say qq|    <action name="Execute" command="perl ~/.config/labwc/services/wofi/launch.pl exec ${label}" />|;
+    say qq|  </item>|;
+
+    $idx++;
+  }
+
+  say qq|</menu>|;
+
+  say '</openbox_pipe_menu>';
+}
+
+sub execute : prototype($$) {
+  my $define  = shift;
+  my $launch  = shift;
+  my $actions = {};
+  my $nop     = sub { exit 0 };
+  while ( my ( $label, $action ) = splice $define->@*, 0, 2 ) {
+    if ( $label eq 'sep' ) {
+      $actions->{$label} = $nop;
+    }
+    else {
+      $actions->{$label} = $action;
+    }
+  }
+
+  if ( exists $actions->{$launch} ) {
+    $actions->{$launch}->();
+  }
+
+  $nop->();
+}
+
+sub main {
+  my $action = shift // q{wofi};
+
+  if ( $action eq 'wofi' ) {
+    run apps;
+  }
+  elsif ( $action eq 'openbox' ) {
+    openbox apps;
+  }
+  elsif ( $action eq 'exec' ) {
+    my $label = shift;
+    execute apps, $label;
+  }
+
 }
 
 main(@ARGV);

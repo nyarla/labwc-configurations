@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Menu
+Exec=sh -c "ydotool mousemove -a 0 12; ydotool key 126:1 59:1 59:0 126:0"
+Icon=distributor-logo-nixos
+Terminal=false

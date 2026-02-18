@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
+systemctl --user start desktop-session.target
+dbus-update-activation-environment --all
+
 cd "$(dirname "${0}")" || exit 1
 
 lxqt-panel &
-sleep 1
-
-# start services
-goreman -f Procfile start & 
-
-# set wallpaper
 swaybg -i "$HOME"/.local/share/backgrounds/default.png -m fit &
+
+sleep 2
+
+goreman -f Procfile start &

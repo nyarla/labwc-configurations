@@ -6,3 +6,4 @@ nm-applet: nm-applet --indicator
 xembedsniproxy: xembedsniproxy
 calibre: env QT_IM_MODULE= GTK_IM_MODULE= calibre --start-in-tray
 swaylock: bash -euo pipefail ~/.config/labwc/bin/swaylock
+ydotoold: ydotoold
