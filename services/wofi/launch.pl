@@ -46,7 +46,7 @@ sub apps {
   state $terminal  ||= 'mlterm-wl';
   state $browser   ||= 'firefox';
   state $email     ||= 'thunderbird';
-  state $password  ||= 'bitwarden --enable-features=UseOzonPlatform --ozone-platform=wayland --enable-wayland-ime';
+  state $password  ||= 'proton-pass --enable-features=UseOzonPlatform --ozone-platform=wayland --enable-wayland-ime';
   state $text      ||= 'pluma';
   state $documents ||= 'atril';
   state $ebooks    ||= 'thorium-reader';
@@ -89,14 +89,15 @@ sub apps {
     'waydroid-stop'        => launch( script 'waydroid-stop' ),
 
     sep "Internet",
-    'firefox'         => launch($browser),
-    'firefox-private' => launch('firefox -p private'),
-    'thunderbird'     => launch($email),
-    'misskey'         => launch('aria'),
-    'flare'           => launch('Flare'),
-    'bitwarden'       => launch($password),
-    'google-chrome'   => launch('google-chrome-stable --ozone-platform=wayland --enable-wayland-ime'),
-    'telegram'        => launch('Telegram'),
+    'firefox'              => launch($browser),
+    'firefox-private'      => launch('firefox -p private'),
+    'thunderbird'          => launch($email),
+    'misskey'              => launch('aria'),
+    'flare'                => launch('Flare'),
+    'proton-pass'          => launch($password),
+    'proton-authenticator' => launch('proton-authenticator'),
+    'google-chrome'        => launch('google-chrome-stable --ozone-platform=wayland --enable-wayland-ime'),
+    'telegram'             => launch('Telegram'),
 
     sep "Files",
     'Thunar'  => launch($files),
