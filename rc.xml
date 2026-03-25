@@ -3,6 +3,8 @@
   <core>
     <decoration>server</decoration>
     <promptCommand>zenity --question --title="" --text="%m" --ok-label="%y" --cancel-label="%n"</promptCommand>
+    <adaptiveSync>yes</adaptiveSync>
+    <hdr>no</hdr>
   </core>
 
   <focus>
@@ -46,26 +48,26 @@
     <!-- Window Operation -->
     <keybind key="W-Left">
       <action name="UnMaximize" direction="both" />
-      <action name="ResizeTo" width="960" height="1032"/>
+      <action name="ResizeTo" width="1280" height="1392"/>
       <action name="MoveTo" x="0" y="24" />
     </keybind>
 
     <keybind key="W-Right">
       <action name="UnMaximize" direction="both" />
-      <action name="ResizeTo" width="960" height="1032"/>
-      <action name="MoveTo" x="960" y="24" />
+      <action name="ResizeTo" width="1280" height="1392"/>
+      <action name="MoveTo" x="1280" y="24" />
     </keybind>
 
     <keybind key="W-Up">
       <action name="UnMaximize" direction="both" />
-      <action name="ResizeTo" width="1920" height="516" />
+      <action name="ResizeTo" width="2560" height="672" />
       <action name="MoveTo" x="0" y="24" />
     </keybind>
 
     <keybind key="W-Down">
       <action name="UnMaximize" direction="both" />
-      <action name="ResizeTo" width="1920" height="516" />
-      <action name="MoveTo" x="0" y="540" />
+      <action name="ResizeTo" width="2560" height="696" />
+      <action name="MoveTo" x="0" y="720" />
     </keybind>
 
     <keybind key="W-p">
@@ -75,8 +77,8 @@
 
     <keybind key="W-i">
       <action name="UnMaximize" direction="both" />
-      <action name="ResizeTo" width="960" height="516" />
-      <action name="MoveTo" x="480" y="246" />
+      <action name="ResizeTo" width="1280" height="672" />
+      <action name="MoveTo" x="640" y="336" />
     </keybind>
   </keyboard>
 
