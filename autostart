@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 systemctl --user start desktop-session.target
-dbus-update-activation-environment --all
+
+wlr-randr --output DP-1 --mode 2560x1440@199.992004
 
 cd "$(dirname "${0}")" || exit 1
 
