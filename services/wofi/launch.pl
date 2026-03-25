@@ -138,6 +138,9 @@ sub apps {
     'inkscape'   => launch( nosleep 'amd-run inkscape' ),
     'pixelorama' => launch( nosleep 'pixelorama --rendering-driver vulkan --gpu-index 0 --display-driver wayland' ),
     'aseprite'   => launch( nosleep 'aseprite' ),
+
+    sep "Actions",
+    'capture' => launch( nosleep q|sh -c 'grim -g "$(slurp)" "$HOME/Downloads/Captures/$(date +%Y-%m-%dT%H-%M-%S).png"'| ),
   ];
   return $apps;
 }
