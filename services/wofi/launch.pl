@@ -32,7 +32,7 @@ sub jack : prototype($) {
   state $buffer ||= 'pw-metadata -n settings 0 clock.force-quantum 512';
 
   my $cmd = shift;
-  return "bash -c '${rate} ; ${buffer} ; QT_QPA_PLATFORM=xcb GDK_BACKEND=x11 pw-jack ${cmd}'";
+  return "bash -c '${rate} ; ${buffer} ; steam-run env QT_QPA_PLATFORM=xcb GDK_BACKEND=x11 pw-jack ${cmd}' >~/Reports/jack.log 2>&1";
 }
 
 sub nosleep : prototype($) {
@@ -131,6 +131,11 @@ sub apps {
     'droidcam'        => launch('droidcam'),
     'seahorse'        => launch($keychain),
     'missioncenter'   => launch($taskmgr),
+
+    sep 'Music',
+    'helio'   => launch( nosleep( jack "helio" ) ),
+    'carla'   => launch( nosleep( jack "carla" ) ),
+    'ildaeil' => launch( nosleep( jack "Ildaeil" ) ),
 
     sep "Illustrations",
     'gimp'       => launch( nosleep 'amd-run gimp' ),
