@@ -12,3 +12,5 @@ swaybg -i "$HOME"/.local/share/backgrounds/default.png -m fit &
 sleep 2
 
 goreman -f Procfile start &
+
+secret-tool lookup type unlock &
