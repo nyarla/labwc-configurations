@@ -122,6 +122,7 @@ sub apps {
     'wivrn'    => launch( nosleep script('launch-wivrn') ),
     'immersed' => launch( nosleep script('launch-immersed') ),
     'alcom'    => launch( nosleep "unityhub-fhs-env amd-run ALCOM" ),
+    'blender'  => launch( nosleep 'blender' ),
     'vrchat'   => launch( nosleep "steam-run steam steam://rungameid/438100" ),
     'gogh'     => launch( nosleep "steam-run steam steam://rungameid/3213850" ),
 
